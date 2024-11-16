@@ -1,0 +1,38 @@
+/* src/components/ClientCard.css */
+.client-card {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+  }
+  
+  .client-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .client-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 16px;
+  }
+  
+  .client-details {
+    flex: 1;
+  }
+  
+  .client-links a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .client-links a:hover {
+    color: #0056b3;
+  }
+  

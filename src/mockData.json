@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "nome": "João Silva",
+      "contato": "555-1234",
+      "email": "joao.silva@example.com",
+      "endereço_id": "E123",
+      "url_de_perfil": "https://via.placeholder.com/80",
+      "url_do_orçamento": "https://example.com/orcamento/1"
+    },
+    {
+      "id": 2,
+      "nome": "Maria Oliveira",
+      "contato": "555-5678",
+      "email": "maria.oliveira@example.com",
+      "endereço_id": "E456",
+      "url_de_perfil": "https://via.placeholder.com/80",
+      "url_do_orçamento": "https://example.com/orcamento/2"
+    }
+  ]
+  
