@@ -1,4 +1,7 @@
 /* src/components/Navbar.css */
+/* src/components/Navbar.css */
+
+/* Navbar em telas grandes */
 .navbar {
     position: fixed;
     left: 0;
@@ -17,7 +20,6 @@
   .navbar-title {
     margin-bottom: 20px;
     font-size: 1.5rem;
-    color: #ffe600;
   }
   
   .navbar-list {
@@ -35,7 +37,6 @@
     color: white;
     font-size: 1rem;
     text-decoration: none;
-    display: block;
     padding: 10px;
     transition: background-color 0.3s, color 0.3s;
   }
@@ -44,5 +45,37 @@
     background-color: #ffe600;
     color: #333;
     border-radius: 5px;
+  }
+  
+  /* Botão para alternar a Navbar */
+  .navbar-toggle {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  /* Ajustar para telas pequenas */
+  @media (max-width: 768px) {
+    .navbar {
+      position: static;
+      width: 100%;
+      height: auto;
+    }
+  
+    .navbar-list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .main-content {
+      margin-left: 0;
+    }
   }
   
