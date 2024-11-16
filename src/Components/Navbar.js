@@ -24,7 +24,7 @@ const Navbar = () => {
         <nav className="navbar">
           <h2 className="navbar-title">Menu</h2>
           <ul className="navbar-list">
-            <li><a href="#client">Cliente</a></li>
+            <li><a href="#client">Clientes</a></li>
             <li><a href="#Dados">Meus dados</a></li>
             <li><a href="#sair">Sair</a></li>
             

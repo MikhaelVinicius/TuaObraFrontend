@@ -23,3 +23,10 @@
     gap: 20px;
     justify-content: center;
   }
+
+
+  .main-content-dados {
+    padding-left: 40px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }

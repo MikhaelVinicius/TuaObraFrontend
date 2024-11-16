@@ -6,7 +6,7 @@ import mockData from '../mockData.json';
 import React, { useEffect, useState } from 'react';
 import ClientCard from './ClientCard';
 
-const MainContent = () => {
+const MainContentClientes = () => {
   const [clients, setClients] = useState([]);
 
   useEffect(() => {
@@ -32,4 +32,8 @@ const MainContent = () => {
   );
 };
 
-export default MainContent;
+export default MainContentClientes;
+
+
+
+

@@ -5,6 +5,8 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import MainContent from '../Components/MainContent';
 import Navbar from '../Components/Navbar';
+import MainContentClientes from '../Components/MainContent';
+import MainContentDados from '../Components/MainContenteDados';
 
 const Homepage = () => {
   return (
@@ -15,7 +17,7 @@ const Homepage = () => {
 
       
       <main>
-        <MainContent />
+        <MainContentDados />
       </main>
 
     
