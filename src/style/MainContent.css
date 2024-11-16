@@ -1,0 +1,19 @@
+
+.main-content {
+    padding: 40px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .main-content h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: #0077cc;
+  }
+  
+  .main-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
