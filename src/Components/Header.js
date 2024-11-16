@@ -5,13 +5,17 @@ import '../style/Header.css';
 const Header = () => {
   return (
     <header className="header">
-      <h1>Bem-vindo à Minha Homepage</h1>
+      <h1>Tua Obra!</h1>
       <nav>
-        <ul className="nav-list">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#contact">Contato</a></li>
-        </ul>
+      <form className="search-form" action="#search" method="get">
+      <input
+        type="text"
+        name="query"
+        placeholder="Buscar..."
+        className="search-input"
+      />
+      <button type="submit" className="search-button">Buscar</button>
+    </form>
       </nav>
     </header>
   );
