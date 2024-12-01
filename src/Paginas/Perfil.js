@@ -1,0 +1,100 @@
+import React, { useEffect, useState } from 'react';
+import api from '../Api'; // Importa o Axios configurado
+import '../style/Perfil.css';
+
+const Perfil = () => {
+  const [usuario, setUsuario] = useState(null); // Estado para armazenar os dados do usuário
+
+  // Busca os dados do perfil do backend
+  useEffect(() => {
+    const fetchUsuario = async () => {
+      try {
+        const response = await api.get('/casaconstrucao/1'); // Substitua "1" pelo ID real
+        setUsuario(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar os dados do perfil:', error);
+      }
+    };
+
+    fetchUsuario();
+  }, []);
+
+  if (!usuario) {
+    return <div>Carregando...</div>;
+  }
+
+  return (
+    <div className="perfil-container">
+      <div className="perfil-header">
+        <img
+          className="perfil-avatar"
+          src={usuario.urlImagemPerfil || 'https://via.placeholder.com/150'}
+          alt="Foto de perfil"
+        />
+        <h1 className="perfil-nome">{usuario.nome}</h1>
+        <p className="perfil-descricao">{usuario.descricao}</p>
+        <button className="editar-button">Editar Perfil</button>
+      </div>
+
+      <div className="perfil-info">
+        <div className="info-item">
+          <span className="info-label">Email:</span>
+          <span className="info-value">{usuario.email}</span>
+        </div>
+        <div className="info-item">
+          <span className="info-label">WhatsApp:</span>
+          <span className="info-value">{usuario.contatoWhatsApp}</span>
+        </div>
+        <div className="info-item">
+          <span className="info-label">Horário:</span>
+          <span className="info-value">{usuario.horario}</span>
+        </div>
+        <div className="info-item">
+          <span className="info-label">Frete:</span>
+          <span className="info-value">{usuario.frete}</span>
+        </div>
+
+        <h2>Endereço</h2>
+        <div className="info-item">
+          <span className="info-label">CEP:</span>
+          <span className="info-value">{usuario.endereco.cep}</span>
+        </div>
+        <div className="info-item">
+          <span className="info-label">Lugar:</span>
+          <span className="info-value">{usuario.endereco.nomeLugar}</span>
+        </div>
+        <div className="info-item">
+          <span className="info-label">Número:</span>
+          <span className="info-value">{usuario.endereco.numero}</span>
+        </div>
+
+        <h2>Clientes</h2>
+        {usuario.clientes.map((cliente) => (
+          <div key={cliente.id} className="cliente-item">
+            <img
+              className="cliente-avatar"
+              src={cliente.urlImagemPerfil || 'https://via.placeholder.com/100'}
+              alt={`Foto de ${cliente.nome}`}
+            />
+            <div>
+              <p>
+                <strong>Nome:</strong> {cliente.nome}
+              </p>
+              <p>
+                <strong>Email:</strong> {cliente.email}
+              </p>
+              <p>
+                <strong>WhatsApp:</strong> {cliente.contatoWhatsApp}
+              </p>
+              <p>
+                <strong>Endereço:</strong> {cliente.endereco.nomeLugar}, {cliente.endereco.numero} - CEP: {cliente.endereco.cep}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Perfil;
