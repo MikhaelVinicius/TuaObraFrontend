@@ -25,7 +25,7 @@ const Homepage = () => {
         {activeComponent === 'client' && <MainContentClientes />}
         {activeComponent === 'dados' && <MainContentDados />}
         
-        {activeComponent === '' && <MainContent />}
+        {activeComponent === 'login' && <MainContent />}
       </main>
 
  

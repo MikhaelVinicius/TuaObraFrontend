@@ -1,81 +1,87 @@
-/* src/components/Navbar.css */
-/* src/components/Navbar.css */
-
-/* Navbar em telas grandes */
+/* Navbar container */
 .navbar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 250px;
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    display: flex;
+  position: fixed;
+  top: 0;
+  left: -20px; 
+  height: 100%;
+  width: 250px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateX(-100%); 
+  opacity: 0;
+  z-index: 999;
+}
+
+.navbar.open {
+  transform: translateX(0); 
+  opacity: 1;
+}
+
+.navbar.closed {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+
+.navbar-title {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+/* Lista de links */
+.navbar-list {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.navbar-list li {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.navbar-list a {
+  color: white;
+  font-size: 1rem;
+  text-decoration: none;
+  padding: 10px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-list a:hover {
+  background-color: #ffe600;
+  color: #333;
+  border-radius: 5px;
+}
+
+/* Botão para abrir/fechar */
+.navbar-toggle {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 768px) {
+  .navbar {
+    width: 100%;
+    height: auto;
+  }
+
+  .navbar-list {
     flex-direction: column;
     align-items: center;
   }
-  
-  .navbar-title {
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-  }
-  
-  .navbar-list {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-  }
-  
-  .navbar-list li {
-    margin: 15px 0;
-    text-align: center;
-  }
-  
-  .navbar-list a {
-    color: white;
-    font-size: 1rem;
-    text-decoration: none;
-    padding: 10px;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .navbar-list a:hover {
-    background-color: #ffe600;
-    color: #333;
-    border-radius: 5px;
-  }
-  
-  /* Botão para alternar a Navbar */
-  .navbar-toggle {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 1000;
-  }
-  
-  /* Ajustar para telas pequenas */
-  @media (max-width: 768px) {
-    .navbar {
-      position: static;
-      width: 100%;
-      height: auto;
-    }
-  
-    .navbar-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .main-content {
-      margin-left: 0;
-    }
-  }
-  
+}

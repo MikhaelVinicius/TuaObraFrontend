@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import api from '../Api'; // Importa o Axios configurado
+import api from '../Api'; 
 import '../style/Perfil.css';
 
 const Perfil = () => {
-  const [usuario, setUsuario] = useState(null); // Estado para armazenar os dados do usuário
+  const [usuario, setUsuario] = useState(null); 
 
-  // Busca os dados do perfil do backend
+ 
   useEffect(() => {
     const fetchUsuario = async () => {
       try {
-        const response = await api.get('/casaconstrucao/1'); // Substitua "1" pelo ID real
+        const response = await api.get('/casaconstrucao/1'); 
         setUsuario(response.data);
       } catch (error) {
         console.error('Erro ao buscar os dados do perfil:', error);
@@ -55,43 +55,57 @@ const Perfil = () => {
         </div>
 
         <h2>Endereço</h2>
-        <div className="info-item">
-          <span className="info-label">CEP:</span>
-          <span className="info-value">{usuario.endereco.cep}</span>
-        </div>
-        <div className="info-item">
-          <span className="info-label">Lugar:</span>
-          <span className="info-value">{usuario.endereco.nomeLugar}</span>
-        </div>
-        <div className="info-item">
-          <span className="info-label">Número:</span>
-          <span className="info-value">{usuario.endereco.numero}</span>
-        </div>
+        {usuario.endereco ? (
+          <>
+            <div className="info-item">
+              <span className="info-label">CEP:</span>
+              <span className="info-value">{usuario.endereco.cep}</span>
+            </div>
+            <div className="info-item">
+              <span className="info-label">Lugar:</span>
+              <span className="info-value">{usuario.endereco.nomeLugar}</span>
+            </div>
+            <div className="info-item">
+              <span className="info-label">Número:</span>
+              <span className="info-value">{usuario.endereco.numero}</span>
+            </div>
+          </>
+        ) : (
+          <p>Endereço não cadastrado.</p>
+        )}
 
         <h2>Clientes</h2>
-        {usuario.clientes.map((cliente) => (
-          <div key={cliente.id} className="cliente-item">
-            <img
-              className="cliente-avatar"
-              src={cliente.urlImagemPerfil || 'https://via.placeholder.com/100'}
-              alt={`Foto de ${cliente.nome}`}
-            />
-            <div>
-              <p>
-                <strong>Nome:</strong> {cliente.nome}
-              </p>
-              <p>
-                <strong>Email:</strong> {cliente.email}
-              </p>
-              <p>
-                <strong>WhatsApp:</strong> {cliente.contatoWhatsApp}
-              </p>
-              <p>
-                <strong>Endereço:</strong> {cliente.endereco.nomeLugar}, {cliente.endereco.numero} - CEP: {cliente.endereco.cep}
-              </p>
+        {usuario.clientes && usuario.clientes.length > 0 ? (
+          usuario.clientes.map((cliente) => (
+            <div key={cliente.id} className="cliente-item">
+              <img
+                className="cliente-avatar"
+                src={cliente.urlImagemPerfil || 'https://via.placeholder.com/100'}
+                alt={`Foto de ${cliente.nome}`}
+              />
+              <div>
+                <p>
+                  <strong>Nome:</strong> {cliente.nome}
+                </p>
+                <p>
+                  <strong>Email:</strong> {cliente.email}
+                </p>
+                <p>
+                  <strong>WhatsApp:</strong> {cliente.contatoWhatsApp}
+                </p>
+                {cliente.endereco ? (
+                  <p>
+                    <strong>Endereço:</strong> {cliente.endereco.nomeLugar}, {cliente.endereco.numero} - CEP: {cliente.endereco.cep}
+                  </p>
+                ) : (
+                  <p>Endereço não disponível.</p>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>Sem clientes cadastrados.</p>
+        )}
       </div>
     </div>
   );

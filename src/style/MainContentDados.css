@@ -1,17 +1,43 @@
+/* Estilização principal do container */
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh; /* Faz o container ocupar toda a altura da tela */
+  text-align: left; /* Centraliza o texto dentro do container */
+  padding: 20px;
+  background-color: #f5f5f5; /* Opcional: cor de fundo */
+}
+
+/* Estilização adicional para o título */
+.main-content h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* Estilização para o componente ConstructionDetails */
+.construction-details {
+  background-color: #fff; /* Cor de fundo do componente */
+  padding: 20px;
+  border-radius: 8px; /* Bordas arredondadas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+  max-width: 600px; /* Largura máxima */
+  width: 100%; /* Garante que ocupe toda a largura disponível */
+}
+
+
 @media (max-width: 768px) {
-    .construction-details {
-      padding: 8px;
-    }
-  
-    .construction-header {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .construction-image {
-      margin-right: 0;
-      margin-bottom: 8px;
-    }
+  .main-content {
+    padding: 10px;
   }
 
-  
+  .construction-details {
+    padding: 16px;
+  }
+
+  .main-content h1 {
+    font-size: 1.5rem;
+  }
+}
