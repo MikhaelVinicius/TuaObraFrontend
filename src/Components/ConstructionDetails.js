@@ -15,7 +15,7 @@ const ConstructionDetails = ({ construction }) => {
         <p><strong>Descrição:</strong> {construction.descricao}</p>
         <p><strong>Frete:</strong> {construction.frete}</p>
         <p><strong>Horário de Funcionamento:</strong> {construction.horario}</p>
-        <p><strong>Frete:</strong> {construction.frete}</p>
+        
      
         <a href={construction.url_lista_de_orcamento} target="_blank" rel="noopener noreferrer" className="budget-link">
           Ver Lista de Orçamentos
