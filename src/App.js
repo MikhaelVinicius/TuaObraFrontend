@@ -3,14 +3,19 @@ import './App.css';
 import Homepage from './Paginas/Homepage';
 //import Perfil from './Paginas/Perfil';
 //import CasaCadastro from './Paginas/CasaCadastro';
-//import Login from './Paginas/Login';
+import Login from './Paginas/Login';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 
 
 function App() {
   return (
- <Homepage/>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
   );
 }
 
